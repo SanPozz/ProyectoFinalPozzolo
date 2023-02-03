@@ -1,0 +1,28 @@
+{% extends "blog/index.html" %} 
+
+{% load static %}
+
+{% block titulo_de_pagina %}
+<h1>Inicia Sesion!</h1>
+
+{% endblock %}
+{% block contenido %}
+
+<br>
+<main class="container">
+    <div class="row">   
+        <div class="col-md-4 offset-md-4 text-center"  >
+            <form action="{% url 'login' %}" method="POST" class="card card-body text-center"> 
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}
+{% block comentarios %}
+{% endblock %}
+
+
+

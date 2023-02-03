@@ -1,0 +1,29 @@
+{% extends "blog/index.html" %} 
+
+{% load static %}
+
+{% block titulo_de_pagina %}
+
+<h1>Registrate!</h1>
+
+{% endblock %}
+
+{% block contenido %}
+
+<br>
+<main class="container">
+    <div class="row">   
+        <div class="col-md-4 offset-md-4 text-center">
+            <form action="{% url 'registro' %}" method="POST" class="card card-body text-center"> 
+                {% csrf_token %}
+                {{ form }}
+                <br>
+                <button type="submit">Registrarse</button>
+                
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}
+{% block comentarios %}
+{% endblock %}

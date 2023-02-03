@@ -1,0 +1,28 @@
+{% extends "blog/index.html" %} 
+{% block titulo_de_pagina %}
+<h1>Editar Publicacion</h1>  
+{% endblock %}
+{% block contenido %}
+    <br>
+<main class="container">
+    <div class="card h-100 shadow border-0">          
+        <div class=" col-md-2 offset-md-1">
+            <br>
+                <form enctype="multipart/form-data" action="{% url 'editarpublicacion' id %}" method="POST">
+                    {% csrf_token %}               
+                        <table>
+                            {{ formulario.media }}
+                            {{ formulario.as_table }}
+                        </table>
+                    <input type="submit" class="btn btn-primary" value="Guardar">
+                    <br>
+                </form>
+                <br>                                                 
+            </div>                                
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block comentarios %}
+{% endblock %}

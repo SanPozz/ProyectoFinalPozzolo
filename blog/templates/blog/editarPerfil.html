@@ -1,0 +1,32 @@
+{% extends "blog/index.html" %} 
+
+{% load static %}
+
+{% block titulo_de_pagina %}
+<h3>Editar Perfil</h3>
+
+<h4>{{ mensaje }}</h4>
+{% endblock %}
+{% block contenido %}
+<br>
+<main class="container-fluid p-0">
+    <div class="row g-0">   
+        <div class="col-md-2 offset-md-5 text-center"  >
+            <form action="{% url 'editarperfil' %}" method="POST" class="card card-body text-center"> 
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button><a class="dropdown-item" htype="submit">Editar</a></button>
+                <br>
+                <button><a class="dropdown-item" href="{% url 'agregaravatar' %}">Agregar avatar</a></button>
+                <br>
+                <button><a class="dropdown-item" href="{% url 'agregarinformacion' %}">Agregar informacion</a></button>
+                <br>
+
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+{% block comentarios %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "blog/index.html" %} 
+
+{% load static %}
+
+{% block titulo_de_pagina %}
+<h3>Subir Avatar para: {{ usuario }}</h3>
+
+{% endblock %}
+{% block contenido %}
+
+<br>
+<main class="container">
+    <div class="row">   
+        <div class="col-md-5 offset-md-3 text-center"  >
+            <form action="{% url 'agregaravatar' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                
+                <table>
+                    {{ form.as_p }}
+                </table> 
+                <br>
+                <input type="submit" class="btn btn-primary" value="Guardar">
+            </form>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}
+{% block comentarios %}
+{% endblock %}

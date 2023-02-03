@@ -1,0 +1,22 @@
+{% extends "blog/index.html" %} 
+{% block titulo_de_pagina %}
+<h2>Usted esta Leyendo: <br><i>{{ leerpublicacion.nombre }}</i></h2>
+{% endblock %}
+{% block contenido %}
+<section class="py-5">
+        <div class = "container px-5 my-5">
+                <div class=" row gx-56 aling-items.center">
+                        <h5 class="fw-bolder"> {{ leerpublicacion.categoria }}</h5>
+                        <div class="bloque" method="POST" enctype="multipart/form-data">
+                        <div><img class="img-fluid rounded mb-5 mb-lg-2" src="{{leerpublicacion.imagen.url}}" alt="..."/></div>
+                        <p class="lead fw-normal text-dark mb-4 ">{{ leerpublicacion.descripcion|safe }}</p>
+                        <h6><i>Autor: {{ leerpublicacion.autor }} </h6></i>
+                        <h6><i>La publicacion fue realizada el: {{ leerpublicacion.fecha }}</i> </h6>
+                        </div>        
+                </div>
+        </div>
+</section>
+
+
+
+{% endblock %}

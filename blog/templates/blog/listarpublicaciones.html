@@ -1,0 +1,54 @@
+{% extends "blog/index.html" %} 
+{% block titulo_de_pagina %}
+<h2>Lista de Entradas del Blog</h2>
+
+{% endblock %}
+
+{% block contenido %}
+
+<a class="btn btn-light" href="{% url 'crearpublicacion' %}">Agregar Post</a>
+<br>
+<br>
+<div class="card">
+    <div class="card body">
+        <table class="table table-striped table-hover table-responsive-sm text-center" >
+            <thead>
+                    <th>Categoria</th>
+                    <th>Nombre</th>                    
+                    <th>Autor</th>
+                    <th>Fecha</th>
+                    <th>Breve descripcion</th>
+                    <th></th>
+                    <th>Funciones</th>
+
+            </thead>
+            <tbody>
+                    {% if  listarpublicaciones|length == 0 %}
+                        <p><b>No hay entradas aún</p>
+                    {% else %}
+                        {% for p in listarpublicaciones %}
+                            <tr> 
+                                <th>{{ p.categoria }}</th>
+                                <th>{{ p.nombre }}</th>
+                                <th>{{ p.autor }}</th>
+                                <th>{{ p.fecha }}</th>
+                                <th>{{ p.descripcion|slice:50|safe }}</th>
+                                <th><button><a class="dropdown-item" href="{% url 'leerpublicacion' p.id %}">Leer</a></button></th>
+                                <th><button><a class="dropdown-item" href="{% url 'editarpublicacion' p.id %}">Editar</a></button></th>
+                                <th><button><a class="dropdown-item" href="{% url 'eliminarpublicacion' p.id %}">Eliminar</a></button></th>
+                            </tr>
+                        {% endfor %} 
+                    
+                    {% endif %}
+            </tbody>            
+        </table>
+    </div>
+</div>
+</section>
+
+
+<br>
+{% endblock %}
+
+{% block comentarios %}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "blog/index.html" %} 
+
+{% load static %}
+
+{% block titulo_de_pagina %}
+<h3>Informacion adicional</h3>
+
+<h4>{{ mensaje }}</h4>
+{% endblock %}
+{% block contenido %}
+
+<br>
+<main class="">
+    <div class="card h-100 shadow border-0">
+        <div class=" col-md-2 offset-md-1">
+                <form enctype="multipart/form-data" action="" method="POST">
+                    {% csrf_token %} 
+                            <table>                         
+                                {{ form.media }}
+                                {{ form }}
+                            </table>
+                        <input type="submit" class="btn btn-primary" value="Guardar">
+                        <br>
+                </form>
+            <br> 
+        </div>
+    </div>
+</main>
+<br>
+<br>
+
+{% endblock %}
+{% block comentarios %}
+{% endblock %}
